@@ -61,7 +61,7 @@ function percentEvaluation(a,operator){
   else if (operator === "÷" && secondValue !== "0") {
     div(a,b);
   }
-  else if (operator === "÷" && secondValue === "0"){
+  else if (operator === "÷" && secondValue.includes("0")){
     ClearHistory();
     historyDisplay.innerText = "WHY????";
   }
@@ -77,10 +77,10 @@ function operate(operator, a, b){
   else if (operator === "×") {
     mult(a,b);
   }
-  else if (operator === "÷" && secondValue !== "0") {
+  else if (operator === "÷" && secondValue > 0) {
     div(a,b);
   }
-  else if (operator === "÷" && secondValue === "0"){
+  else if (operator === "÷" && secondValue <= 0){
     ClearHistory();
     historyDisplay.innerText = "WHY????";
   }
@@ -118,9 +118,6 @@ function appendNumber(number) {
   // if (textdisplay.innerText.includes("0") && !textdisplay.innerText.includes(".") ) {     i like this line so i keep it her
   // textdisplay.innerText = null}
 
-  if (textdisplay.innerText === "" && number === "0"){  // this one works better
-    return;
-  }
 
   if (number === "."){
     addDot(number);
